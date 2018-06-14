@@ -5,7 +5,7 @@ provider:
   runtime: nodejs8.10
   stage: development
   region: us-east-1
-  memorySize: 256
+  memorySize: 128
   timeout: 15
   environment:
     NODE_ENV: production
@@ -15,6 +15,7 @@ plugins:
   - serverless-offline
   - serverless-domain-manager
   - serverless-apigw-binary
+  - serverless-plugin-warmup
 
 custom:
   serverless-offline:
@@ -29,7 +30,7 @@ custom:
       - '*/*'
 
 functions:
-  server:
+  next:
     handler: lambda.handler
     events:
       - http:
@@ -38,3 +39,4 @@ functions:
       - http:
           method: ANY
           path: /{any+}
+    warmup: true
