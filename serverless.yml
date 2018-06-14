@@ -1,0 +1,40 @@
+service: future
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: development
+  region: us-east-1
+  memorySize: 256
+  timeout: 15
+  environment:
+    NODE_ENV: production
+    LAMBDA: true
+
+plugins:
+  - serverless-offline
+  - serverless-domain-manager
+  - serverless-apigw-binary
+
+custom:
+  serverless-offline:
+    port: 8000
+  customDomain:
+    domainName: future.huang.mx
+    certificateName: '*.huang.mx'
+    stage: ${self:provider.stage}
+    createRoute53Record: true
+  apigwBinary:
+    types:
+      - '*/*'
+
+functions:
+  server:
+    handler: lambda.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: /{any+}

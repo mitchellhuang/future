@@ -1,0 +1,21 @@
+{
+  "name": "create-next-example-app",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "next": "^6.0.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "serverless-http": "^1.5.5"
+  },
+  "devDependencies": {
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-domain-manager": "^2.4.0",
+    "serverless-offline": "^3.25.4"
+  }
+}
