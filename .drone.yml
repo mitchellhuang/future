@@ -6,7 +6,7 @@ pipeline:
       - yarn build
 
   deploy:
-    image: plugins/gh-pages
+    image: node:8
     commands:
       - yarn global add serverless
       - sls deploy
