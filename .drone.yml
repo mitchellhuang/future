@@ -1,0 +1,13 @@
+pipeline:
+  build:
+    image: node:8
+    commands:
+      - yarn
+      - yarn build
+
+  deploy:
+    image: plugins/gh-pages
+    commands:
+      - yarn global add serverless
+      - sls deploy
+    secrets: [ aws_access_key_id, aws_secret_access_key ]
