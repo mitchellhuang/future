@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "compression": "^1.7.2",
@@ -15,6 +16,11 @@
     "serverless-http": "^1.5.5"
   },
   "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
     "serverless-apigw-binary": "^0.4.4",
     "serverless-domain-manager": "^2.4.0",
     "serverless-offline": "^3.25.4",

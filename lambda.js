@@ -22,15 +22,15 @@ const binaryMimeTypes = [
   'application/font-woff2',
   'application/font-woff',
   'font/woff',
-  'font/woff2'
+  'font/woff2',
 ];
 
 exports.handler = (event, context, callback) => {
   app.prepare()
-  .then(() => {
-    const handler = serverless(server, {
-      binary: binaryMimeTypes
+    .then(() => {
+      const handler = serverless(server, {
+        binary: binaryMimeTypes,
+      });
+      return handler(event, context, callback);
     });
-    return handler(event, context, callback)
-  })
-}
+};
