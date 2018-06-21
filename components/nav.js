@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from './head';
 import Link from 'next/link';
 
 const links = [
